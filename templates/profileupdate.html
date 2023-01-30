@@ -1,0 +1,26 @@
+{% extends 'navbar2.html' %}
+{% block content %}
+<style>
+    input:focus{
+    background-color:black;
+    color:white;
+    }
+    input[type=submit]{
+    background-color:blue;
+    color:white}
+</style>
+<br>
+<br>
+<h3 align="center"><i style="text-shadow:2px 2px 10px red;color:white">Update Your Profile Here..&#128522;</i></h3>
+<form action="updatepro" method="post">
+    {% csrf_token %}
+<table align="center" cellspacing="5" cellpadding="5">
+    <tr><td><b><i style="text-shadow:2px 2px 10px white;color:black;">Name:</i></b></td> <td><input type="text" name="s_name" value="{{ data.S_Name }}"></td></tr>
+    <tr><td><b><i style="text-shadow:2px 2px 10px white;color:black;">Phno:</i></b></td> <td><input type="number" name="Ph_no" value="{{ data.S_Phno }}"></td></tr>
+    <tr><td><b><i style="text-shadow:2px 2px 10px white;color:black;">Semester:</i></b></td> <td><input type="number" name="sem" value="{{ data.S_Semester }}"></td></tr>
+    <tr><td><b><i style="text-shadow:2px 2px 10px white;color:black;">Password:</i></b></td> <td><input type="text" name="pass" value="{{ data.S_Password }}"></td></tr>
+    <tr><td><b><i style="text-shadow:2px 2px 10px white;color:black;">Course:</i></b></td> <td><input type="text" name="course" value="{{ data.S_Course }}" disabled></td></tr>
+    <tr><td colspan="2" align="center"><input type="submit" value="Update"></td></tr>
+</table>
+</form>
+{% endblock %}

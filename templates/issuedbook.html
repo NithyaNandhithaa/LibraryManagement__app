@@ -1,0 +1,27 @@
+{% extends 'navbar.html' %}
+{% block content %}
+<br>
+<br>
+<br>
+<h3 align="center" style="text-shadow:2px 2px 10px green;color:yellow;">Issued Book Details</h3>
+<table align="center" cellpadding="10" cellspacing="10" border="1">
+    <tr>
+        <th><i style="text-shadow:2px 2px 10px red;color:white;">Student Name</i></th>
+        <th><i style="text-shadow:2px 2px 10px red;color:white;">Book Name</i></th>
+        <th><i style="text-shadow:2px 2px 10px red;color:white;">Start Date</i></th>
+        <th><i style="text-shadow:2px 2px 10px red;color:white;">End Date</i></th>
+        <th><i style="text-shadow:2px 2px 10px red;color:white;">Update</i></th>
+        <th><i style="text-shadow:2px 2px 10px red;color:white;">Delete</i></th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td><b><i style="text-shadow:2px 2px 10px white;color:black;">{{ i.Stud_Name }}</i></b></td>
+        <td><b><i style="text-shadow:2px 2px 10px white;color:black;">{{ i.Book_Name }}</i></b></td>
+        <td><b><i style="text-shadow:2px 2px 10px white;color:black;">{{ i.Start_Date }}</i></b></td>
+        <td><b><i style="text-shadow:2px 2px 10px white;color:black;">{{ i.End_Date }}</i></b></td>
+        <td><a href="{% url 'upgrade' i.id %}">upgrade</a></td>
+        <td><a href="{% url 'v' i.id %}">delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

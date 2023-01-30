@@ -1,0 +1,23 @@
+{% extends 'navbar2.html' %}
+{% block content %}
+<br>
+<br>
+<br>
+<table align="center" cellspacing="10" cellpadding="10" border="3">
+    <h3 align="center" style="text-shadow:2px 2px 10px white;color:green">Book Issued For you ....</h3>
+    <tr>
+        <th><i style="text-shadow:2px 2px 10px green;color:white;">Student Name</i></th>
+        <th><i style="text-shadow:2px 2px 10px green;color:white;">Book Name</i></th>
+        <th><i style="text-shadow:2px 2px 10px green;color:white;">Start Date</i></th>
+        <th><i style="text-shadow:2px 2px 10px green;color:white;">End Date</i></th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td><i style="text-shadow:2px 2px 10px red;color:black;"><b>{{ i.Stud_Name }}</b></i></td>
+        <td><i style="text-shadow:2px 2px 10px red;color:black;"><b>{{ i.Book_Name }}</b></i></td>
+        <td><i style="text-shadow:2px 2px 10px red;color:black;"><b>{{ i.Start_Date }}</b></i></td>
+        <td><i style="text-shadow:2px 2px 10px red;color:black;"><b>{{ i.End_Date }}</b></i></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

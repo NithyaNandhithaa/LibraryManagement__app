@@ -1,0 +1,66 @@
+{% extends 'navbar.html' %}
+{% block content %}
+<style>
+input:focus
+{
+background-color:black;
+color:white;
+}
+input[type=submit]
+{
+background-color:green;
+color:white;
+}
+</style>
+<br>
+<form action="read_assign_data" method="post">
+    {% csrf_token %}
+    <h4 align="center" style="text-shadow:2px 2px 10px green;color:yellow;"><i>Select sem and course..</i> </h4>
+    <table align="center" cellspacing="5" cellpadding="5">
+        <tr>
+        <td><i style="text-shadow:2px 2px 10px red;color:white;">Stud Sem:</i></td>
+        <td><input type="number" name="sem"></td>
+        </tr>
+        <tr>
+            <td><i style="text-shadow:2px 2px 10px red;color:white;">Stud Course:</i></td>
+            <td>
+                <select name="course">
+                    {% for i in data %}
+                        <option>{{ i.Course_Name }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" name="Submit" value="Submit"></td>
+        </tr>
+    </table>
+        </form>
+<br>
+<form action="assign_data" method="post">
+        {% csrf_token %}
+        <h3 align="center" style="text-shadow:2px 2px 10px green;color:yellow;"><i>Assign Book... </i></h3>
+        <table align="center" cellpadding="5" cellspacing="5">
+            <tr><td><i style="text-shadow:2px 2px 10px red;color:white;">StudentName:</i></td>
+                <td>
+                    <select name="sname">
+                        {% for i in s %}
+                        <option>{{ i.S_Name }}</option>
+                        {% endfor %}
+                    </select>
+                </td></tr>
+            <tr><td><i style="text-shadow:2px 2px 10px red;color:white;">BookName:</i></td>
+                <td>
+                    <select name="bname">
+                        {% for i in b %}
+                        <option>{{ i.Book_Name }}</option>
+                        {% endfor %}
+                    </select>
+                </td></tr>
+            <tr><td><i style="text-shadow:2px 2px 10px red;color:white;">StartDate:</i></td><td><input type="date" name="start"></td></tr>
+            <tr><td><i style="text-shadow:2px 2px 10px red;color:white;">EndDate:</i></td><td><input type="date" name="end"></td></tr>
+            <tr><td colspan="2"><input type="submit" value="AssignData"> </td></tr>
+        </table>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,7 @@
+{% load static %}
+body
+{
+background-image:url(https://img.freepik.com/premium-photo/book-stack-library-room-blurred-bookshelf-background_42691-514.jpg?w=2000);
+background-repeat:no-repeat;
+background-size:100%;
+}

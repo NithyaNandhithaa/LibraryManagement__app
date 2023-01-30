@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{% static 'css/registeration.css' %}" rel="stylesheet">
+    <style>
+        input:focus
+        {
+        background-color:black;
+        color:white;
+        }
+        input[type=submit]{
+        background-color:green;
+        color:white;
+        }
+    </style>
+</head>
+<body>
+<form action="readstud" method="post">
+    {% csrf_token %}
+     <h2 style="color:red">{{ d }}</h2>
+    <br>
+    <br>
+<!--    <marquee>Lets start our new future..</marquee>-->
+<!--    <marquee direction="right"-->
+<!--             behaviour="alternate"-->
+<!--             style="border:transparen">-->
+<!--        <h2><i style="text-shadow:3px 3px 10px red;color:yellow;"></i></h2>-->
+<!--    </marquee>-->
+<table align="center" cellspacing="1" cellpadding="5">
+
+   <h2 align="center"><i style="text-shadow:3px 3px 10px red;color:yellow;">Student Registration</i></h2>
+    <tr><td colspan="2"><fieldset><legend><b style="text-shadow:2px 2px 2px red;color:yellow">Name</b></legend><input type="text" name="name"></fieldset></td></tr>
+     <tr><td colspan="2"><fieldset><legend><b style="text-shadow:2px 2px 2px red;color:yellow">Phno</b></legend><input type="number" name="phno" ></fieldset></td></tr>
+      <tr><td colspan="2"><fieldset><legend><b style="text-shadow:2px 2px 2px red;color:yellow">Password</b></legend><input type="password" name="pass"></fieldset></td></tr>
+      <tr><td colspan="2"><fieldset><legend><b style="text-shadow:2px 2px 2px red;color:yellow">Semester</b></legend><input type="number" name="sem"></fieldset></td></tr>
+      <tr><td colspan="2"><fieldset><legend><b style="text-shadow:2px 2px 2px red;color:yellow">Course</b></legend>
+          <select name="course">
+              {% for i in data %}
+              <option>{{ i.Course_Name }}</option>
+              {% endfor %}
+          </select></fieldset>
+      </td></tr>
+    <tr><td colspan="2" align="center"><input type="submit" value="Register"></td></tr>
+</table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{% load static %}
+body{
+background-image:url(https://images6.alphacoders.com/760/thumb-1920-760603.jpg);
+background-repeat:no-repeat;
+background-size:100%;
+}

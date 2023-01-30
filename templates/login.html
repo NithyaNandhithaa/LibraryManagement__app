@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <link href="{% static 'css/login.css' %}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/fb4fb8c853.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function check()
+        {
+            var password = document.getElementById('pwd');
+            var ch=document.getElementById('ch');
+            if(ch.checked)
+            {
+                password.setAttribute('type','text');
+            }
+            else
+            {
+                password.setAttribute('type','password')
+            }
+        }
+    </script>
+    <style>
+        .hi
+        {
+        margin:2px;
+        padding:50px 50px 100px 50px;
+        }
+        input[type=text]:focus
+        {
+        border:none;
+        background-color:black;
+        color:white;
+        }
+        .wow:focus
+        {
+        background-color:black;
+        color:white;
+        }
+    </style>
+</head>
+<body>
+<!--<input type="text" placeholder="enter you name" style="background:transparent;border-bottom:1px solid #999;border-top:None;border-right:None;border-left:None;" >-->
+<form action="logdata" method="post">
+    {% csrf_token %}
+    <div class="hi">
+        <table align="center" cellspacing="3" cellpadding="3">
+    <tr><td colspan="2"><h2 align="center"><i style="text-shadow:2px 2px 3px yellow;color:red">LOGIN PAGE</i></h2></td></tr>
+    <tr><td colspan="2" align="center">
+        <fieldset style="border-color:black"><legend><b>Username:</b></legend><input type="text" name="name" placeholder="Enter your Name"></fieldset></td></tr>
+    <tr><td colspan="2" align="center"><fieldset style="border-color:black"><legend><b>Password:</b></legend><input type="password" name="pass" id="pwd" placeholder="Enter your password" class="wow"><input type="checkbox" id="ch" onclick="check()"><i class="fa-solid fa-eye"></i></fieldset></td></tr>
+    <tr><td colspan="2" align="center"><input type="submit" name="sub" value="Login"></td></tr>
+    <tr><td align="center"><a href="{% url 'areg' %}">Admin Reg</a></td><td align="center"><a href="{% url 'sreg' %}">Student Reg</a></td></tr>
+</table></div>
+    <h2 align="center" style="color:red">{{ data }}</h2>
+</form>
+</body>
+</html>

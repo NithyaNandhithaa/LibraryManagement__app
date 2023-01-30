@@ -1,0 +1,33 @@
+{% extends 'navbar.html' %}
+{% block content %}
+<style>
+  input:focus
+  {
+  background-color:black;
+  color:white;
+  }
+  input[type=submit]
+  {
+  background-color:green;
+  color:white;
+  }
+</style>
+<br>
+<br>
+<h3 align="center"><i style="text-shadow:2px 2px 10px red;color:yellow">Add Book</i></h3>
+<form action="bookdata" method="post">
+  {% csrf_token %}
+<table align="center" cellpadding="10" cellspacing="10">
+  <tr><td><i style="text-shadow:2px 2px 10px red;color:white;">Book Name:</i></td><td><input type="text" name="book_name" placeholder="Enter Book Name"></td></tr>
+  <tr><td><i style="text-shadow:2px 2px 10px red;color:white;">Author Name:</i></td><td><input type="text" name="author_name" placeholder="Enter Author Name"></td></tr>
+  <tr><td><i style="text-shadow:2px 2px 10px red;color:white;">Course:</i></td><td>
+    <select name="course">
+      {% for i in data %}
+      <option>{{ i.Course_Name }}</option>
+      {% endfor %}
+    </select>
+  </td></tr>
+  <tr><td colspan="2"><input type="submit" name="addbook" value="AddBook"></td></tr>
+</table>
+  </form>
+{% endblock %}
